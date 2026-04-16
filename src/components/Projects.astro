@@ -1,6 +1,9 @@
 ---
 // Projects Section
 import projectsData from '../data/projects.json';
+
+// Helper untuk base path
+const base = import.meta.env.BASE_URL;
 ---
 
 <section id="projects" class="min-h-screen px-6 md:px-12 py-20">
@@ -15,7 +18,7 @@ import projectsData from '../data/projects.json';
         <div class={`project-card backdrop-blur-sm rounded-xl overflow-hidden hover:border-blue-500/50 transition-all hover:transform hover:scale-[1.02] ${project.featured ? 'featured-card' : ''}`}>
           {project.image && (
             <div class="project-image">
-              <img src={project.image} alt={project.title} loading="lazy" />
+              <img src={base + project.image} alt={project.title} loading="lazy" />
             </div>
           )}
           <div class="project-content p-6 flex flex-col h-full">
