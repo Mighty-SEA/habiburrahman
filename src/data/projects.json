@@ -40,7 +40,7 @@
         "caption": "Halaman login dengan autentikasi user untuk akses sistem"
       },
       {
-        "image": "/projects/petclinicmanagement/gui.PNG",
+        "image": "/projects/petclinicmanagement/gui.png",
         "caption": "Interface utama aplikasi dengan navigasi menu yang intuitif"
       },
       {
@@ -52,7 +52,7 @@
         "caption": "Manajemen session appointment dan medical records"
       },
       {
-        "image": "/projects/petclinicmanagement/POS.png",
+        "image": "/projects/petclinicmanagement/pos.png",
         "caption": "Point of Sale untuk transaksi obat dan layanan klinik"
       }
     ]

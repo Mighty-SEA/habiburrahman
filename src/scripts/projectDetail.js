@@ -46,7 +46,7 @@ const projectsData = [
         caption: "Manajemen session appointment dan medical records"
       },
       {
-        image: "/projects/petclinicmanagement/POS.png",
+        image: "/projects/petclinicmanagement/pos.png",
         caption: "Point of Sale untuk transaksi obat dan layanan klinik"
       }
     ]
