@@ -2,7 +2,7 @@
   {
     "id": "elibrary-smada",
     "title": "Elibrary SMADA",
-    "description": "Platform perpustakaan digital sekolah dengan fitur peminjaman online, katalog buku, dan sistem manajemen koleksi",
+    "description": "Platform perpustakaan digital untuk SMA Pemuda dengan sistem booking online. Murid bisa browse katalog dan booking buku yang ingin dipinjam, lalu admin perpustakaan akan approve dan menyiapkan bukunya. Pengambilan buku tetap dilakukan secara offline di perpustakaan. Sistem ini memudahkan manajemen peminjaman dengan role-based access untuk murid, admin, dan penjaga perpus.",
     "tech": ["Laravel", "Vue.js", "MySQL", "Tailwind CSS"],
     "link": "#",
     "image": "/projects/elibrary/detail buku.png",
@@ -61,7 +61,7 @@
     "id": "absensi",
     "title": "Aplikasi Absensi Mobile",
     "description": "Aplikasi absensi berbasis mobile dengan GPS tracking dan face recognition",
-    "tech": ["Flutter", "Firebase", "Dart"],
+    "tech": ["Go", "Flutter", "MySQL"],
     "link": "#"
   },
   {

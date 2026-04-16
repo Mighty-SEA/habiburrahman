@@ -66,3 +66,21 @@
 .light-mode .custom-scrollbar {
   scrollbar-color: #3b82f6 transparent;
 }
+
+
+/* Scroll Animation */
+.scroll-animate {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.scroll-animate.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.scroll-animate.hidden {
+  opacity: 0;
+  transform: translateY(30px);
+}

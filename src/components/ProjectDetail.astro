@@ -1,0 +1,277 @@
+---
+// Project Detail View Component
+---
+
+<div id="project-detail" style="display: none;">
+  <button class="back-button" onclick="window.hideProjectDetail()">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+    </svg>
+    Kembali ke Projects
+  </button>
+
+  <div class="detail-content">
+    <div class="detail-header">
+      <h1 id="detail-title" class="detail-title"></h1>
+      <p id="detail-description" class="detail-description"></p>
+      <div id="detail-tech" class="detail-tech"></div>
+    </div>
+
+    <div class="carousel-container">
+      <div class="carousel-wrapper">
+        <button class="carousel-btn carousel-prev" onclick="window.prevSlide()">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path>
+          </svg>
+        </button>
+        
+        <div id="carousel-track" class="carousel-track"></div>
+        
+        <button class="carousel-btn carousel-next" onclick="window.nextSlide()">
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path>
+          </svg>
+        </button>
+      </div>
+      
+      <div id="carousel-dots" class="carousel-dots"></div>
+      <div id="carousel-caption" class="carousel-caption"></div>
+    </div>
+  </div>
+
+  <button class="back-button" onclick="window.hideProjectDetail()">
+    <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+    </svg>
+    Kembali ke Projects
+  </button>
+</div>
+
+<style is:global>
+  /* Back Button */
+  .back-button {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: rgb(var(--text-secondary));
+    font-weight: 500;
+    background: none;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: color 0.3s ease;
+    margin-bottom: 2rem;
+  }
+
+  .back-button:hover {
+    color: rgb(96, 165, 250);
+  }
+
+  .light-mode .back-button:hover {
+    color: rgb(37, 99, 235);
+  }
+
+  /* Detail Header */
+  .detail-content {
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+
+  .detail-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .detail-title {
+    color: rgb(var(--text-primary));
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+  }
+
+  .detail-description {
+    color: rgb(var(--text-secondary));
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-bottom: 1.5rem;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .detail-tech {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    justify-content: center;
+  }
+
+  .detail-tech span {
+    background: rgba(var(--bg-tertiary), 0.5);
+    color: rgb(96, 165, 250);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    font-size: 0.875rem;
+    padding: 0.5rem 1rem;
+    border-radius: 9999px;
+    transition: all 0.3s ease;
+  }
+
+  .light-mode .detail-tech span {
+    color: rgb(37, 99, 235);
+    border-color: rgba(37, 99, 235, 0.3);
+  }
+
+  /* Carousel Container */
+  .carousel-container {
+    width: 100%;
+  }
+
+  .carousel-wrapper {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+    border-radius: 20px;
+    background: rgba(var(--bg-secondary), 0.5);
+    border: 1px solid rgba(var(--border-primary), 0.5);
+  }
+
+  .carousel-track {
+    display: flex;
+    width: 100%;
+  }
+
+  /* Carousel Slide - CRITICAL: Must be 100% width */
+  .carousel-slide {
+    width: 100%;
+    min-width: 100%;
+    flex: 0 0 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 2rem;
+  }
+
+  .carousel-slide img {
+    max-width: 100%;
+    max-height: 600px;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+    border-radius: 12px;
+  }
+
+  /* Carousel Buttons */
+  .carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(var(--bg-tertiary), 0.9);
+    border: 1px solid rgba(var(--border-primary), 0.5);
+    color: rgb(var(--text-primary));
+    width: 48px;
+    height: 48px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    z-index: 10;
+  }
+
+  .carousel-btn:hover {
+    background: rgba(96, 165, 250, 0.2);
+    border-color: rgb(96, 165, 250);
+    transform: translateY(-50%) scale(1.1);
+  }
+
+  .light-mode .carousel-btn:hover {
+    background: rgba(37, 99, 235, 0.2);
+    border-color: rgb(37, 99, 235);
+  }
+
+  .carousel-prev {
+    left: 1rem;
+  }
+
+  .carousel-next {
+    right: 1rem;
+  }
+
+  /* Carousel Dots */
+  .carousel-dots {
+    display: flex;
+    justify-content: center;
+    gap: 0.5rem;
+    margin-top: 1.5rem;
+  }
+
+  .carousel-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: rgba(var(--text-tertiary), 0.3);
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+  }
+
+  .carousel-dot.active {
+    background: rgb(96, 165, 250);
+    width: 32px;
+    border-radius: 5px;
+  }
+
+  .light-mode .carousel-dot.active {
+    background: rgb(37, 99, 235);
+  }
+
+  /* Carousel Caption */
+  .carousel-caption {
+    text-align: center;
+    color: rgb(var(--text-secondary));
+    font-size: 1.125rem;
+    line-height: 1.7;
+    margin-top: 2rem;
+    padding: 0 2rem;
+    min-height: 3.5rem;
+  }
+
+  /* Mobile Responsive */
+  @media (max-width: 768px) {
+    .detail-title {
+      font-size: 1.75rem;
+    }
+
+    .detail-description {
+      font-size: 1rem;
+    }
+
+    .carousel-slide {
+      padding: 1rem;
+    }
+
+    .carousel-slide img {
+      max-height: 400px;
+    }
+
+    .carousel-btn {
+      width: 40px;
+      height: 40px;
+    }
+
+    .carousel-prev {
+      left: 0.5rem;
+    }
+
+    .carousel-next {
+      right: 0.5rem;
+    }
+
+    .carousel-caption {
+      font-size: 1rem;
+      margin-top: 1.5rem;
+      padding: 0 1rem;
+    }
+  }
+</style>
