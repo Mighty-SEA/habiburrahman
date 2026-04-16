@@ -32,7 +32,7 @@
     "description": "Aplikasi desktop offline untuk manajemen klinik hewan dengan fitur appointment, medical records, dan point of sale",
     "tech": ["Go", "Wails", "Vue.js", "SQLite"],
     "link": "#",
-    "image": "/projects/petclinicmanagement/gui.PNG",
+    "image": "/projects/petclinicmanagement/gui.png",
     "featured": true,
     "gallery": [
       {

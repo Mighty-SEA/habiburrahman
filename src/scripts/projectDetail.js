@@ -34,7 +34,7 @@ const projectsData = [
         caption: "Halaman login dengan autentikasi user untuk akses sistem"
       },
       {
-        image: "/projects/petclinicmanagement/gui.PNG",
+        image: "/projects/petclinicmanagement/gui.png",
         caption: "Interface utama aplikasi dengan navigasi menu yang intuitif"
       },
       {
