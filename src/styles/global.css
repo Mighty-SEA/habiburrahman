@@ -1,0 +1,68 @@
+@import "tailwindcss";
+
+/* CSS Variables untuk theming */
+:root {
+  /* Dark mode colors (default) */
+  --bg-primary: 15, 23, 42;
+  --bg-secondary: 30, 41, 59;
+  --bg-tertiary: 51, 65, 85;
+  --text-primary: 255, 255, 255;
+  --text-secondary: 203, 213, 225;
+  --text-tertiary: 148, 163, 184;
+  --border-primary: 51, 65, 85;
+  --border-secondary: 71, 85, 105;
+}
+
+.light-mode {
+  /* Light mode colors - Material UI style */
+  --bg-primary: 250, 250, 250;
+  --bg-secondary: 255, 255, 255;
+  --bg-tertiary: 245, 245, 245;
+  --text-primary: 33, 33, 33;
+  --text-secondary: 97, 97, 97;
+  --text-tertiary: 158, 158, 158;
+  --border-primary: 224, 224, 224;
+  --border-secondary: 238, 238, 238;
+}
+
+/* Custom scrollbar - Modern Progress Indicator Style */
+.custom-scrollbar::-webkit-scrollbar {
+  width: 6px;
+}
+
+.custom-scrollbar::-webkit-scrollbar-track {
+  background: transparent;
+  margin: 8px 0;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
+  border-radius: 10px;
+  transition: all 0.3s ease;
+}
+
+.custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%);
+  width: 8px;
+}
+
+/* Light mode scrollbar */
+.light-mode .custom-scrollbar::-webkit-scrollbar-thumb {
+  background: linear-gradient(180deg, #60a5fa 0%, #3b82f6 50%, #2563eb 100%);
+  box-shadow: 0 0 6px rgba(59, 130, 246, 0.3);
+}
+
+.light-mode .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+  background: linear-gradient(180deg, #3b82f6 0%, #2563eb 50%, #1d4ed8 100%);
+  box-shadow: 0 0 8px rgba(59, 130, 246, 0.5);
+}
+
+/* Firefox scrollbar */
+.custom-scrollbar {
+  scrollbar-width: thin;
+  scrollbar-color: #3b82f6 transparent;
+}
+
+.light-mode .custom-scrollbar {
+  scrollbar-color: #3b82f6 transparent;
+}

@@ -1,0 +1,206 @@
+---
+// Navbar Component
+const navItems = [
+  { name: "Home", href: "#home" },
+  { name: "Projects", href: "#projects" },
+  { name: "About", href: "#about" }
+];
+---
+
+<nav class="fixed top-0 left-0 right-0 z-50 px-3 md:px-4 pt-3 md:pt-4">
+  <div class="px-6 md:px-8 py-4 flex items-center justify-between">
+    <!-- Logo/Brand -->
+    <a href="#home" class="text-xl md:text-2xl font-bold bg-gradient-to-r from-blue-400 to-purple-500 bg-clip-text text-transparent hover:scale-105 transition-transform">
+      Portfolio
+    </a>
+
+    <div class="flex items-center gap-3">
+      <!-- Desktop Menu (dengan card) -->
+      <div class="hidden md:block">
+        <div class="nav-card backdrop-blur-md rounded-full px-6 py-2 shadow-lg transition-all duration-300">
+          <ul class="flex items-center gap-6">
+            {navItems.map((item) => (
+              <li>
+                <a 
+                  href={item.href}
+                  class="nav-link transition-colors relative group"
+                >
+                  {item.name}
+                  <span class="absolute -bottom-1 left-0 w-0 h-0.5 bg-blue-400 group-hover:w-full transition-all duration-300"></span>
+                </a>
+              </li>
+            ))}
+          </ul>
+        </div>
+      </div>
+
+      <!-- Sidebar Toggle Button (dengan card terpisah) -->
+      <div class="hidden md:block">
+        <button 
+          id="sidebar-toggle"
+          class="theme-btn backdrop-blur-md rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110"
+          aria-label="Toggle sidebar"
+        >
+          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Theme Toggle Button (dengan card terpisah) -->
+      <div class="hidden md:block">
+        <button 
+          id="theme-toggle"
+          class="theme-btn backdrop-blur-md rounded-full p-2 shadow-lg transition-all duration-300 hover:scale-110"
+          aria-label="Toggle theme"
+        >
+          <svg id="sun-icon" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+          <svg id="moon-icon" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+        </button>
+      </div>
+
+      <!-- Mobile: Theme Toggle & Menu Button -->
+      <div class="md:hidden flex items-center gap-3">
+        <button 
+          id="theme-toggle-mobile"
+          class="mobile-menu-btn transition-colors"
+          aria-label="Toggle theme"
+        >
+          <svg id="sun-icon-mobile" class="w-5 h-5 hidden" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364l-.707-.707M6.343 6.343l-.707-.707m12.728 0l-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 11-8 0 4 4 0 018 0z"></path>
+          </svg>
+          <svg id="moon-icon-mobile" class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M20.354 15.354A9 9 0 018.646 3.646 9.003 9.003 0 0012 21a9.003 9.003 0 008.354-5.646z"></path>
+          </svg>
+        </button>
+        <button 
+          id="mobile-menu-btn"
+          class="mobile-menu-btn transition-colors"
+          aria-label="Toggle menu"
+        >
+          <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+<style>
+  /* Nav Card - Desktop Menu */
+  .nav-card {
+    background: rgba(var(--bg-secondary), 0.95);
+    border: 1px solid rgba(var(--border-primary), 0.5);
+  }
+  
+  /* Nav Links */
+  .nav-link {
+    color: rgb(var(--text-secondary));
+  }
+  
+  .nav-link:hover {
+    color: rgb(var(--text-primary));
+  }
+  
+  /* Theme Button */
+  .theme-btn {
+    background: rgba(var(--bg-secondary), 0.95);
+    border: 1px solid rgba(var(--border-primary), 0.5);
+    color: rgb(var(--text-secondary));
+  }
+  
+  .theme-btn:hover {
+    color: rgb(var(--text-primary));
+  }
+  
+  /* Mobile Menu Button */
+  .mobile-menu-btn {
+    color: rgb(var(--text-secondary));
+  }
+  
+  .mobile-menu-btn:hover {
+    color: rgb(var(--text-primary));
+  }
+</style>
+
+<script>
+  function updateThemeIcons() {
+    const isLight = document.documentElement.classList.contains('light-mode');
+    const sunIcon = document.getElementById('sun-icon');
+    const moonIcon = document.getElementById('moon-icon');
+    const sunIconMobile = document.getElementById('sun-icon-mobile');
+    const moonIconMobile = document.getElementById('moon-icon-mobile');
+    
+    if (isLight) {
+      sunIcon?.classList.remove('hidden');
+      moonIcon?.classList.add('hidden');
+      sunIconMobile?.classList.remove('hidden');
+      moonIconMobile?.classList.add('hidden');
+    } else {
+      sunIcon?.classList.add('hidden');
+      moonIcon?.classList.remove('hidden');
+      sunIconMobile?.classList.add('hidden');
+      moonIconMobile?.classList.remove('hidden');
+    }
+  }
+  
+  function toggleTheme() {
+    const html = document.documentElement;
+    const isLight = html.classList.contains('light-mode');
+    
+    if (isLight) {
+      html.classList.remove('light-mode');
+      localStorage.setItem('theme', 'dark');
+    } else {
+      html.classList.add('light-mode');
+      localStorage.setItem('theme', 'light');
+    }
+    
+    updateThemeIcons();
+  }
+
+  // Sidebar toggle
+  document.addEventListener('DOMContentLoaded', () => {
+    updateThemeIcons();
+    
+    // Desktop theme toggle
+    const themeToggle = document.getElementById('theme-toggle');
+    themeToggle?.addEventListener('click', toggleTheme);
+
+    // Mobile theme toggle
+    const themeToggleMobile = document.getElementById('theme-toggle-mobile');
+    themeToggleMobile?.addEventListener('click', toggleTheme);
+
+    // Sidebar toggle (desktop & mobile)
+    const sidebarToggle = document.getElementById('sidebar-toggle');
+    sidebarToggle?.addEventListener('click', () => {
+      if ((window as any).toggleSidebar) {
+        (window as any).toggleSidebar();
+      }
+    });
+
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    mobileMenuBtn?.addEventListener('click', () => {
+      if ((window as any).toggleSidebar) {
+        (window as any).toggleSidebar();
+      }
+    });
+
+    // Smooth scroll
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+      anchor.addEventListener('click', function (e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href') || '');
+        if (target) {
+          target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        }
+      });
+    });
+  });
+</script>

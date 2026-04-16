@@ -1,0 +1,89 @@
+[
+  {
+    "id": "elibrary-smada",
+    "title": "Elibrary SMADA",
+    "description": "Platform perpustakaan digital sekolah dengan fitur peminjaman online, katalog buku, dan sistem manajemen koleksi",
+    "tech": ["Laravel", "Vue.js", "MySQL", "Tailwind CSS"],
+    "link": "#",
+    "image": "/projects/elibrary/detail buku.png",
+    "featured": true,
+    "gallery": [
+      {
+        "image": "/projects/elibrary/dashboard.png",
+        "caption": "Dashboard utama dengan statistik peminjaman dan koleksi buku terbaru"
+      },
+      {
+        "image": "/projects/elibrary/mainmenu.png",
+        "caption": "Main menu dengan navigasi ke berbagai fitur perpustakaan"
+      },
+      {
+        "image": "/projects/elibrary/detail buku.png",
+        "caption": "Halaman detail buku dengan informasi lengkap dan tombol peminjaman"
+      },
+      {
+        "image": "/projects/elibrary/bookingbuku.png",
+        "caption": "Form booking buku untuk peminjaman online"
+      }
+    ]
+  },
+  {
+    "id": "petclinic",
+    "title": "PetClinic Management System",
+    "description": "Aplikasi desktop offline untuk manajemen klinik hewan dengan fitur appointment, medical records, dan point of sale",
+    "tech": ["Go", "Wails", "Vue.js", "SQLite"],
+    "link": "#",
+    "image": "/projects/petclinicmanagement/gui.PNG",
+    "featured": true,
+    "gallery": [
+      {
+        "image": "/projects/petclinicmanagement/login.png",
+        "caption": "Halaman login dengan autentikasi user untuk akses sistem"
+      },
+      {
+        "image": "/projects/petclinicmanagement/gui.PNG",
+        "caption": "Interface utama aplikasi dengan navigasi menu yang intuitif"
+      },
+      {
+        "image": "/projects/petclinicmanagement/registration.png",
+        "caption": "Form registrasi pasien hewan dengan data lengkap owner dan pet"
+      },
+      {
+        "image": "/projects/petclinicmanagement/session.png",
+        "caption": "Manajemen session appointment dan medical records"
+      },
+      {
+        "image": "/projects/petclinicmanagement/POS.png",
+        "caption": "Point of Sale untuk transaksi obat dan layanan klinik"
+      }
+    ]
+  },
+  {
+    "id": "absensi",
+    "title": "Aplikasi Absensi Mobile",
+    "description": "Aplikasi absensi berbasis mobile dengan GPS tracking dan face recognition",
+    "tech": ["Flutter", "Firebase", "Dart"],
+    "link": "#"
+  },
+  {
+    "id": "gramedia-scraper",
+    "title": "Gramedia Scraper",
+    "description": "Web scraper untuk mengumpulkan data buku dari Gramedia dengan automated data extraction",
+    "tech": ["Python", "BeautifulSoup", "Selenium"],
+    "link": "#"
+  },
+  {
+    "id": "k-means",
+    "title": "Sistem Pembagian Bantuan K-Means",
+    "description": "Aplikasi clustering untuk pembagian bantuan sosial menggunakan algoritma K-Means",
+    "tech": ["Laravel", "Python", "Chart.js"],
+    "link": "#",
+    "featured": true
+  },
+  {
+    "id": "perpuskita",
+    "title": "PerpusKita - Library Management",
+    "description": "Sistem manajemen perpustakaan digital dengan fitur peminjaman, katalog, dan reporting",
+    "tech": ["Laravel", "Vue", "MySQL"],
+    "link": "#"
+  }
+]

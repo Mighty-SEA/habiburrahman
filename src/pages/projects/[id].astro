@@ -1,0 +1,203 @@
+---
+import projectsData from '../../data/projects.json';
+
+export function getStaticPaths() {
+  return projectsData.map(project => ({
+    params: { id: project.id },
+    props: { project }
+  }));
+}
+
+const { project } = Astro.props;
+---
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{project.title} - Portfolio</title>
+  <link rel="stylesheet" href="/src/styles/global.css">
+</head>
+<body>
+  <main class="min-h-screen px-6 md:px-12 py-20">
+    <div class="max-w-6xl mx-auto">
+      <!-- Back Button -->
+      <a href="/#projects" class="back-link inline-flex items-center gap-2 mb-8 transition-colors">
+        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10 19l-7-7m0 0l7-7m-7 7h18"></path>
+        </svg>
+        Kembali ke Projects
+      </a>
+
+      <!-- Project Header -->
+      <div class="mb-12">
+        <h1 class="project-title text-4xl md:text-5xl font-bold mb-4 transition-colors">{project.title}</h1>
+        <p class="project-description text-lg md:text-xl mb-6 transition-colors">{project.description}</p>
+        
+        <!-- Tech Stack -->
+        <div class="flex flex-wrap gap-2">
+          {project.tech.map((tech) => (
+            <span class="tech-badge text-sm rounded-full px-4 py-2 transition-colors">
+              {tech}
+            </span>
+          ))}
+        </div>
+      </div>
+
+      <!-- Gallery -->
+      {project.gallery && (
+        <div class="gallery">
+          {project.gallery.map((item) => (
+            <div class="gallery-item">
+              <div class="gallery-image">
+                <img src={item.image} alt={project.title} loading="lazy" />
+              </div>
+              <div class="gallery-caption">
+                <p>{item.caption}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+      )}
+    </div>
+  </main>
+
+  <style>
+    :root {
+      --bg-primary: 15, 23, 42;
+      --bg-secondary: 30, 41, 59;
+      --bg-tertiary: 51, 65, 85;
+      --text-primary: 248, 250, 252;
+      --text-secondary: 203, 213, 225;
+      --text-tertiary: 148, 163, 184;
+      --border-primary: 51, 65, 85;
+      --border-secondary: 71, 85, 105;
+    }
+
+    .light-mode {
+      --bg-primary: 255, 255, 255;
+      --bg-secondary: 248, 250, 252;
+      --bg-tertiary: 241, 245, 249;
+      --text-primary: 15, 23, 42;
+      --text-secondary: 51, 65, 85;
+      --text-tertiary: 100, 116, 139;
+      --border-primary: 226, 232, 240;
+      --border-secondary: 203, 213, 225;
+    }
+
+    body {
+      background: rgb(var(--bg-primary));
+      color: rgb(var(--text-primary));
+      transition: background-color 0.3s ease, color 0.3s ease;
+    }
+
+    .back-link {
+      color: rgb(var(--text-secondary));
+      font-weight: 500;
+    }
+
+    .back-link:hover {
+      color: rgb(96, 165, 250);
+    }
+
+    .light-mode .back-link:hover {
+      color: rgb(37, 99, 235);
+    }
+
+    .project-title {
+      color: rgb(var(--text-primary));
+    }
+
+    .project-description {
+      color: rgb(var(--text-secondary));
+      line-height: 1.7;
+    }
+
+    .tech-badge {
+      background: rgba(var(--bg-tertiary), 0.5);
+      color: rgb(96, 165, 250);
+      border: 1px solid rgba(96, 165, 250, 0.3);
+    }
+
+    .light-mode .tech-badge {
+      color: rgb(37, 99, 235);
+      border-color: rgba(37, 99, 235, 0.3);
+    }
+
+    .gallery {
+      display: flex;
+      flex-direction: column;
+      gap: 4rem;
+    }
+
+    .gallery-item {
+      display: grid;
+      grid-template-columns: 650px 1fr;
+      gap: 3rem;
+      align-items: start;
+    }
+
+    .gallery-image {
+      border-radius: 16px;
+      overflow: hidden;
+      border: 1px solid rgba(var(--border-primary), 0.5);
+      transition: all 0.3s ease;
+    }
+
+    .gallery-image:hover {
+      transform: scale(1.02);
+      border-color: rgba(96, 165, 250, 0.5);
+      box-shadow: 0 12px 32px rgba(96, 165, 250, 0.2);
+    }
+
+    .light-mode .gallery-image:hover {
+      border-color: rgba(37, 99, 235, 0.5);
+      box-shadow: 0 12px 32px rgba(37, 99, 235, 0.15);
+    }
+
+    .gallery-image img {
+      width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    .gallery-caption {
+      color: rgb(var(--text-secondary));
+      font-size: 1.125rem;
+      line-height: 1.8;
+      padding-top: 1rem;
+    }
+
+    @media (max-width: 1024px) {
+      .gallery-item {
+        grid-template-columns: 550px 1fr;
+        gap: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .gallery-item {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+      }
+
+      .gallery {
+        gap: 3rem;
+      }
+
+      .gallery-caption {
+        font-size: 1rem;
+      }
+    }
+  </style>
+
+  <script>
+    // Check for saved theme preference or default to dark mode
+    const theme = localStorage.getItem('theme') || 'dark';
+    if (theme === 'light') {
+      document.documentElement.classList.add('light-mode');
+    }
+  </script>
+</body>
+</html>
