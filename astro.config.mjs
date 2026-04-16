@@ -6,7 +6,7 @@ import tailwindcss from '@tailwindcss/vite';
 // https://astro.build/config
 export default defineConfig({
   site: 'https://yourusername.github.io',
-  base: '/repo-name',
+  base: '/', // Ubah ke '/' untuk development, ganti ke '/repo-name' saat deploy
   vite: {
     plugins: [tailwindcss()]
   }
