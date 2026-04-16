@@ -5,8 +5,8 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://yourusername.github.io',
-  base: '/', // Ubah ke '/' untuk development, ganti ke '/repo-name' saat deploy
+  site: 'https://mighty-sea.github.io',
+  base: '/habiburrahman',
   vite: {
     plugins: [tailwindcss()]
   }
